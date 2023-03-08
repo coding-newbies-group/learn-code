@@ -5,16 +5,12 @@ const client = new BlazeClient(config, { parse: true, syncAck: true });
 
 client.loopBlaze({
   onMessage(msg) {
-    console.log(msg);
-    if (msg.data === "?" || msg.data === "？") {
-      client.sendMessageText(msg.user_id, "帮助信息");
-    } else if (msg.data === "/") {
-      client.sendMessageText(msg.user_id, "命令信息");
+    if (msg.data === "你好") {
+      client.sendmessagetext(msg.user_id, "你也好！");
+    } else if (msg.data === "你是谁") {
+      client.sendmessagetext(msg.user_id, "我是编程学习小助手");
     } else {
-      client.sendMessageText(
-        msg.user_id,
-        "请发送“?”获得帮助，或者“/”获得命令列表"
-      );
+      client.sendmessagetext(msg.user_id, "我不知道你在说什么");
     }
   },
   onAckReceipt() {},
